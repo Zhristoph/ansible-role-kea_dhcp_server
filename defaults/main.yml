@@ -1,0 +1,5 @@
+networks: 
+  - networkName: ""
+    macAddress: ""
+    ipAddresses: []
+    nat: []

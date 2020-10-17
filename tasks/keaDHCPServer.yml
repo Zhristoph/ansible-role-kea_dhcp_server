@@ -1,0 +1,37 @@
+---
+- name: Install kea DHCP server
+  tags: kea
+  apt:
+    name:
+     - kea-dhcp4-server
+     - kea-dhcp6-server
+
+- name: Configure kea DHCP4 daemon
+  tags: kea
+  template:
+    src: kea/kea-dhcp4.conf
+    dest: "/etc/kea/kea-dhcp4.conf"
+  notify: restart kea-dhcp4-server
+
+- name: Enable kea DHCP4 server
+  tags: kea
+  systemd:
+    name: kea-dhcp4-server
+    enabled: yes  
+  loop: "{{ networks }}"
+  when: item.network4 is defined and item.network4 != ""
+
+- name: Configure kea DHCP6 daemon
+  tags: kea
+  template:
+    src: kea/kea-dhcp6.conf
+    dest: "/etc/kea/kea-dhcp6.conf"
+  notify: restart kea-dhcp6-server
+
+- name: Enable kea DHCP6 server
+  tags: kea
+  systemd:
+    name: kea-dhcp4-server
+    enabled: yes
+    loop: "{{ networks }}"
+  when: item.network6 is defined and item.network6 != ""

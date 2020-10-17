@@ -1,0 +1,4 @@
+---
+- include: netplan.yml
+- include: radvd.yml
+- include: keaDHCPServer.yml

@@ -1,0 +1,9 @@
+---
+- name: Configure netplan interfaces
+  tags: netplan
+  template:
+    src: netplan/dhcpInterfaces.yaml
+    dest: "/etc/netplan/{{ item.networkName }}.yaml"
+  with_items:
+    - "{{ networks }}"
+  when: item.networkName != ""

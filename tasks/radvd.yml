@@ -1,0 +1,21 @@
+---
+- name: Install radvd server
+  tags: radvd
+  apt:
+    name: "radvd"
+
+- name: Configure radvd daemon
+  tags: radvd
+  template:
+    src: radvd.conf
+    dest: "/etc/radvd.conf"
+    notify: restart radvd
+
+- name: Enable radvd daemon
+  tags: radvd
+  systemd:
+    name: radvd
+    enabled: yes
+    loop: "{{ networks }}"
+  when: item.network6 is defined and item.network6 != ""
+
