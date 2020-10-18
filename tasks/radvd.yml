@@ -9,7 +9,7 @@
   template:
     src: radvd.conf
     dest: "/etc/radvd.conf"
-    notify: restart radvd
+  notify: restart radvd
 
 - name: Enable radvd daemon
   tags: radvd
