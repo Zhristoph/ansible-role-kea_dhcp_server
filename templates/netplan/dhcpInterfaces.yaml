@@ -4,7 +4,7 @@ network:
       match:
         macaddress: {{ item.macAddress }}
       set-name: {{ item.networkName }}
-      addresses: [ {% if item.router4 is defined %}"{{ item.router4 }}/{{ item.netmask4}}", {% endif %}{% if item.router6 != "" %}"{{ item.router6 }}/{{ item.netmask6}}",{% endif %} ]
+      addresses: [ {% if item.router4 is defined and item.router4 != "" %}"{{ item.router4 }}/{{ item.netmask4}}", {% endif %}{% if item.router6 is defined and item.router6 != "" %}"{{ item.router6 }}/{{ item.netmask6}}",{% endif %} ]
       accept-ra: false
       optional: true
   version: 2
