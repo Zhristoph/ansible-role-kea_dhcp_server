@@ -4,6 +4,7 @@
   template:
     src: netplan/dhcpInterfaces.yaml
     dest: "/etc/netplan/{{ item.networkName }}.yaml"
+    mode: "u=rw,g=r,o=r"
   with_items:
     - "{{ networks }}"
   when: item.networkName != ""
