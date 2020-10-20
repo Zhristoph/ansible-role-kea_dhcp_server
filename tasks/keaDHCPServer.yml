@@ -11,7 +11,7 @@
   template:
     src: kea/kea-dhcp4.conf
     dest: "/etc/kea/kea-dhcp4.conf"
-    mode: "u=rw,g=r,u=r"
+    mode: "u=rw,g=r,o=r"
   notify: restart kea-dhcp4-server
 
 - name: Enable kea DHCP4 server
@@ -27,7 +27,7 @@
   template:
     src: kea/kea-dhcp6.conf
     dest: "/etc/kea/kea-dhcp6.conf"
-    mode: "u=rw,g=r,u=r"
+    mode: "u=rw,g=r,o=r"
   notify: restart kea-dhcp6-server
 
 - name: Enable kea DHCP6 server
