@@ -9,6 +9,7 @@
   template:
     src: radvd.conf
     dest: "/etc/radvd.conf"
+    mode: "u=rw,g=r,o=r"
   notify: restart radvd
 
 - name: Enable radvd daemon
@@ -16,6 +17,6 @@
   systemd:
     name: radvd
     enabled: yes
-    loop: "{{ networks }}"
+  loop: "{{ networks }}"
   when: item.network6 is defined and item.network6 != ""
 
