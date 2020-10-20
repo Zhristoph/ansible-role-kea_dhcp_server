@@ -1,3 +1,5 @@
+localNetwork6: False
+
 networks: 
   - networkName: ""
     macAddress: ""

@@ -1,4 +1,12 @@
 ---
+- name: Are there local IPv6 networks?
+  tags: firewall
+  set_fact:
+    localNetwork6: True
+  loop: "{{ networks }}"
+  when: item.network6 is defined and item.network6 != ""
+
 - include: netplan.yml
 - include: radvd.yml
+  when: localNetwork6
 - include: keaDHCPServer.yml
