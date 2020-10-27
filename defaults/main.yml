@@ -1,3 +1,8 @@
+
+dhcpValidLifetime4: 3600
+dhcpPrefLifetime6: 3000
+dhcpValidLifetime6: 4000
+
 localNetwork6: False
 
 networks: 
