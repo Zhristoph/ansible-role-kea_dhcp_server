@@ -1,6 +1,6 @@
 ---
 - name: Are there local IPv6 networks?
-  tags: firewall
+  tags: firewall, radvd
   set_fact:
     localNetwork6: True
   loop: "{{ networks }}"
