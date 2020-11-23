@@ -1,0 +1,6 @@
+- name: dhcp server
+  hosts: dhcpserver
+  become: yes
+  gather_facts: no
+  roles:
+    - kea_dhcp_server

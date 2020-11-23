@@ -1,0 +1,8 @@
+all:
+  hosts:
+  children:
+    dhcpserver:
+      hosts:
+        dhcpserver01:
+        dhcpserver02:
+                dhcpserver03:
